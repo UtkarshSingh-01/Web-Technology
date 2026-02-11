@@ -5,83 +5,130 @@
     <title>Registration Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body{
-            background-color: rgb(200,200,255);
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, #c8c8ff, #e0b3ff);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
             padding: 15px;
             box-sizing: border-box;
         }
-        .Form {
-            background: rgb(200,160,255);
-            padding: 20px;
-            border-radius: 10px;
+
+        .container {
+            background: rgb(200,200,255);
             width: 100%;
-            max-width: 350px;
-            box-sizing: border-box;
+            max-width: 400px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        h2{
+        h2 {
             text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .row {
             margin-bottom: 15px;
-            font-size: 30px;
+            display: flex;
+            flex-direction: column;
         }
-        label {
+
+        .row label {
             font-weight: bold;
-            font-size: 16px;
+            margin-bottom: 5px;
         }
-        input{
-            width: 100%;
+
+        .row input,
+        .row select,
+        .row textarea {
             padding: 10px;
-            margin: 6px 0 15px 0;
             border-radius: 5px;
             border: 1px solid #ccc;
             font-size: 14px;
             box-sizing: border-box;
         }
-        button{
-            width: 100%;
+
+        .row input:focus,
+        .row select:focus,
+        .row textarea:focus {
+            outline: none;
+            border-color: #a64dff;
+            box-shadow: 0 0 5px rgba(166, 77, 255, 0.5);
+        }
+
+        button {
             padding: 12px;
-            background-color: rgb(200,0,255);
             border: none;
+            border-radius: 5px;
+            background-color: #a64dff;
             color: white;
             font-size: 16px;
-            border-radius: 5px;
             cursor: pointer;
         }
 
+        button:hover {
+            background-color: #8c33ff;
+        }
+
         @media (max-width: 480px) {
-            .Form{
-                padding: 15px;
+            .container {
+                padding: 18px;
             }
-          
-            input,select,button{
-                font-size: 14px;
+
+            h2 {
+                font-size: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="Form">
+
+    <div class="container">
         <h2>Registration Form</h2>
 
         <form action="#" method="POST">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-              
-			<label for="phone-number">Phone Number</label>
-            <input type="number" id="number" name="number" required>
-              
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <div class="row">
+                <label>Full Name</label>
+                <input type="text" name="name" placeholder="Enter your full name" required>
+            </div>
 
-            <button type="submit">Submit</button>
+            <div class="row">
+                <label>Email Address</label>
+                <input type="email" name="email" placeholder="Enter your email address" required>
+            </div>
+
+            <div class="row">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <div class="row">
+                <label>Confirm Password</label>
+                <input type="password" name="confirm_password" placeholder="Confirm your password" required>
+            </div>
+
+            <div class="row">
+                <label>Gender</label>
+                <select name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="row">
+                <label>Mobile Number</label>
+                <input type="tel" name="phone" placeholder="Enter your mobile number" pattern="[0-9]{10}" required>
+            </div>
+
+            <div class="row">
+                <button type="submit">Register</button>
+            </div>
         </form>
     </div>
 </body>
